@@ -93,7 +93,7 @@ function AddDoctor() {
                             <p>
                                 Experience
                             </p>
-                            <select onChange={(e) => setExperience(e.target.value)} value={experience} className='border rounded px-3 py-2' name="" id="">
+                            <select onChange={(e) => setExperience(e.target.value)} value={experience} className='border rounded px-3 py-2' name="" id="experience">
                                 <option value="1 Year">1 Year</option>
                                 <option value="2 Year">2 Year</option>
                                 <option value="3 Year">3 Year</option>
@@ -114,7 +114,7 @@ function AddDoctor() {
                             <p>
                                 Speciality
                             </p>
-                            <select onChange={(e) => setSpeciality(e.target.value)} value={speciality} className='border rounded px-3 py-2' name="" id="">
+                            <select onChange={(e) => setSpeciality(e.target.value)} value={speciality} className='border rounded px-3 py-2' name="" id="speciality">
                                 <option value="General physician">General Physician</option>
                                 <option value="Gynecologist">Gynecologist</option>
                                 <option value="Dermatologist">Dermatologist</option>
