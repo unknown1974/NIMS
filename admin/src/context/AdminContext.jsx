@@ -69,6 +69,32 @@ const AdminContextProvider = (props) => {
     }
   };
 
+const removeDoctor = async (docId) => {
+  try {
+    const response = await axios.post(backendUrl + '/api/admin/remove-doctor',
+      { docId },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    const { data } = response;
+
+    if (data.success) {
+      toast.success(data.message);
+      getAllDoctors(); // Refresh the list after successful deletion
+    } else {
+      toast.error(data.message || "Failed to delete doctor");
+    }
+  } catch (error) {
+    const errorMsg = error.response?.data?.message || error.message || "An error occurred";
+    toast.error(errorMsg);
+  }
+};
+
+
   const getDashData = async () => {
     try {
       setLoading(true);  // Start loading
@@ -95,6 +121,7 @@ const AdminContextProvider = (props) => {
     getAllAppointments,
     cancelAppointment,
     dashData, getDashData,
+    removeDoctor,
     loading,  // <-- Provide loading to context consumers
   };
 
